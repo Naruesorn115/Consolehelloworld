@@ -21,6 +21,12 @@ namespace Consolehelloworld
 
             Console.WriteLine();
             Console.WriteLine("press any key to end program");
+            Console.ReadKey();
+
+            Console.WriteLine("--------------------***********----------------------");
+            Console.WriteLine("My Hometown is");
+            Console.WriteLine("Bangkok");
+            Console.WriteLine("Thailand");
         }
     }
 }
