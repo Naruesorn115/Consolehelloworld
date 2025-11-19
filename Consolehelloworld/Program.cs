@@ -4,29 +4,33 @@ namespace Consolehelloworld
     {
         static void Main(string[] args)
         {
-            string name = "";
-            int height = 0;
-            Console.WriteLine("Hello, World!");
-            Console.WriteLine();
-            Console.Write("Please, input you full name (eng) :");
-            name = Console.ReadLine();
+            string name = "", gender = ""; int height = 0;
 
-            Console.WriteLine("Hello, World!" + name);
+            Console.WriteLine("Hey!!!\n");
 
-            Console.WriteLine("please fill in you height(cm) :");
-            height = Convert.ToInt16(Console.ReadLine());
-            int weight = height - 100;
+            while (name.Length < 4)
+            {
+                Console.Write("Please fill in your full name: ");
+                name = Console.ReadLine();
+                if (name.Length < 4) Console.WriteLine("Invalid!\n");
+            }
 
-            Console.WriteLine("You ideal weight is " + weight.ToString());
+            while (gender != "male" && gender != "female")
+            {
+                Console.Write("Please enter your gender (male/female): ");
+                gender = Console.ReadLine().ToLower();
+                if (gender != "male" && gender != "female") Console.WriteLine("Invalid!\n");
+            }
 
-            Console.WriteLine();
-            Console.WriteLine("press any key to end program");
-            Console.ReadKey();
+            while (!int.TryParse(Console.ReadLine(), out height))
+            {
+                Console.Write("Please enter your height (cm): ");
+                Console.WriteLine("Invalid number!\n");
+               
+            }
 
-            Console.WriteLine("--------------------***********----------------------");
-            Console.WriteLine("My Hometown is");
-            Console.WriteLine("Bangkok");
-            Console.WriteLine("Thailand");
+            int weight = (gender == "male") ? height - 100 : height - 110;
+            Console.WriteLine("\nIdeal weight: " + weight + " kg");
         }
     }
 }
